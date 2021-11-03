@@ -3,16 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.OpenGameActivity">
 
     <ImageView
-        android:id="@+id/play"
+        android:id="@+id/button_play"
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
-        android:src="@drawable/botaoplay" />
+        android:src="@drawable/buttonplay" />
 
 
 </RelativeLayout>

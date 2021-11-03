@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.EvenOrOddActivity">
+
+    <ImageView
+        android:id="@+id/even"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginBottom="385dp"
+        android:src="@drawable/even" />
+
+    <ImageView
+        android:id="@+id/odd"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginBottom="385dp"
+        android:src="@drawable/odd" />
+
+</RelativeLayout>
