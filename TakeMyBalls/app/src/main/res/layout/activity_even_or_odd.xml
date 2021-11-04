@@ -6,6 +6,37 @@
     tools:context=".ui.EvenOrOddActivity">
 
     <ImageView
+        android:id="@+id/time"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/time" />
+
+    <ImageView
+        android:id="@+id/pontero"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/poeiro" />
+
+    <TextView
+        android:id="@+id/balls"
+        android:layout_width="26dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:text="8"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+
+    <ImageView
         android:id="@+id/even"
         android:layout_width="135dp"
         android:layout_height="135dp"
@@ -24,5 +55,15 @@
         android:layout_marginHorizontal="35dp"
         android:layout_marginBottom="385dp"
         android:src="@drawable/odd" />
+
+    <ImageView
+        android:id="@+id/close_hand"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="61dp"
+        android:src="@drawable/close_hand" />
 
 </RelativeLayout>
