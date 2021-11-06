@@ -37,7 +37,7 @@
 
 
     <ImageView
-        android:id="@+id/even"
+        android:id="@+id/activity_button_even"
         android:layout_width="135dp"
         android:layout_height="135dp"
         android:layout_alignParentLeft="true"
@@ -47,7 +47,7 @@
         android:src="@drawable/even" />
 
     <ImageView
-        android:id="@+id/odd"
+        android:id="@+id/activity_button_odd"
         android:layout_width="135dp"
         android:layout_height="135dp"
         android:layout_alignParentRight="true"
@@ -58,7 +58,7 @@
 
     <ImageView
         android:id="@+id/close_hand"
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:layout_height="300dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
