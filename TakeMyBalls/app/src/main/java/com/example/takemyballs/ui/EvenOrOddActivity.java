@@ -2,6 +2,7 @@ package com.example.takemyballs.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -12,7 +13,17 @@ import android.widget.Toast;
 import com.example.takemyballs.R;
 import com.example.takemyballs.model.EvenOdd;
 
+import java.sql.Time;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class EvenOrOddActivity extends AppCompatActivity {
+
+    Timer timer;
+
+    public static final String even = "EVEN";
+    public static final String odd = "ODD";
+    public static final String evenOdd = "NO_CHOICE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,26 +38,20 @@ public class EvenOrOddActivity extends AppCompatActivity {
         float exoX = 100;
         float exoY = 100;
 
-        String even = "EVEN";
-        String odd = "ODD";
 
-        EvenOdd evenOdd;
 
         Animation rotate = new RotateAnimation(topPointer, time, exoY, exoX);
         rotate.setDuration(5000);
         rotate.setFillAfter(true);
         pointer.startAnimation(rotate);
 
-
-
+        Intent intent = new Intent(EvenOrOddActivity.this, Win_Activity.class);
 
         ImageView ButtonEven = findViewById(R.id.activity_button_even);
         ButtonEven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EvenOdd evenOdd = new EvenOdd(even);
-                Toast.makeText(EvenOrOddActivity.this, evenOdd.getEvenOrOdd(),
-                        Toast.LENGTH_SHORT).show();
+                intent.putExtra(evenOdd, even);
             }
         });
 
@@ -54,10 +59,20 @@ public class EvenOrOddActivity extends AppCompatActivity {
         ButtonOdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EvenOdd evenOdd = new EvenOdd(odd);
-                Toast.makeText(EvenOrOddActivity.this, evenOdd.getEvenOrOdd(),
-                        Toast.LENGTH_SHORT).show();
+                intent.putExtra(evenOdd, odd);
             }
         });
+
+
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                startActivity(intent);
+                finish();
+            }
+        }, 5000);
+
     }
 }

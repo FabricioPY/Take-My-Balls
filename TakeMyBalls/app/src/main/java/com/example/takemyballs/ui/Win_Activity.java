@@ -2,6 +2,7 @@ package com.example.takemyballs.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import com.example.takemyballs.model.EvenOdd;
@@ -15,9 +16,12 @@ public class Win_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_win);
 
-        EvenOdd evenOdd = null;
+        Intent intent =  getIntent();
+        String choice = intent.getStringExtra(EvenOrOddActivity.evenOdd);
 
-        TextView eveOddF = findViewById(R.id.activity_even_or_odd);
-        eveOddF.setText(evenOdd.getEvenOrOdd());
+        TextView evenOdd =  (TextView) findViewById(R.id.activity_even_or_odd);
+
+        evenOdd.setText(choice);
+
     }
 }
