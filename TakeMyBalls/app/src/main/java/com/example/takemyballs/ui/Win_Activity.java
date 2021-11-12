@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.takemyballs.dao.GamerDAO;
 import com.example.takemyballs.model.EvenOdd;
 
 import com.example.takemyballs.R;
@@ -18,7 +19,6 @@ public class Win_Activity extends AppCompatActivity {
 
     public static final String even = "EVEN";
     public static final String odd = "ODD";
-    public static String ballsEvenOrOdd = "NO_CHOICE";
 
     public static final String win = "WIN";
     public static final String loss = "LOSS";
@@ -37,12 +37,16 @@ public class Win_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_win);
 
+        GamerDAO dao = new GamerDAO();
+
+        EvenOdd ballsEvenOrOdd;
+
         int balls = random.nextInt(max + min);
 
         if ( balls % 2 == 0 )
-            ballsEvenOrOdd = even;
+            ballsEvenOrOdd = new EvenOdd(even);
         else
-            ballsEvenOrOdd = odd;
+            ballsEvenOrOdd = new EvenOdd(odd);
 
 
 
@@ -51,9 +55,11 @@ public class Win_Activity extends AppCompatActivity {
 
         TextView evenOdd =  (TextView) findViewById(R.id.activity_even_or_odd);
 
-        evenOdd.setText(choice.toString());
+        choice = dao.choice();
 
-        if(choice.toString() == ballsEvenOrOdd)
+        evenOdd.setText(choice.getEvenOdd());
+
+        if(choice.getEvenOdd() == ballsEvenOrOdd.getEvenOdd())
             winOrLoss = win;
         else
             winOrLoss = loss;

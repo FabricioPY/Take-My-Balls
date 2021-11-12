@@ -56,7 +56,7 @@ public class EvenOrOddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 EvenOdd evenOdd = new EvenOdd(even);
-                dao.save(even);
+                dao.save(evenOdd);
             }
         });
 
@@ -64,7 +64,8 @@ public class EvenOrOddActivity extends AppCompatActivity {
         ButtonOdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                EvenOdd evenOdd = new EvenOdd(odd);
+                dao.save(evenOdd);
             }
         });
 

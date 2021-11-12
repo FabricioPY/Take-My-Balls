@@ -6,7 +6,13 @@ public class EvenOdd {
     public EvenOdd(String evenOdd){
         this.evenOdd = evenOdd;
     }
-    public String getEvenOdd(){
+
+    public String getEvenOdd() {
+        return evenOdd;
+    }
+
+    @Override
+    public String toString() {
         return evenOdd;
     }
 }
