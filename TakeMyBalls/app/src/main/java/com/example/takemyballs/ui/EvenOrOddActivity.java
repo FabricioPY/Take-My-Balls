@@ -49,7 +49,7 @@ public class EvenOrOddActivity extends AppCompatActivity {
         rotate.setFillAfter(true);
         pointer.startAnimation(rotate);
 
-        Intent intent = new Intent(EvenOrOddActivity.this, Win_Activity.class);
+        Intent intent = new Intent(EvenOrOddActivity.this, WinOrLoseActivity.class);
 
         ImageView ButtonEven = findViewById(R.id.activity_button_even);
         ButtonEven.setOnClickListener(new View.OnClickListener() {

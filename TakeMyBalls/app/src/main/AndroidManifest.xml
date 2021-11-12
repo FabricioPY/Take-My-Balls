@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TakeMyBalls">
         <activity
-            android:name=".ui.Win_Activity"
+            android:name=".ui.WinOrLoseActivity"
             android:exported="true" />
         <activity
             android:name=".ui.EvenOrOddActivity"
