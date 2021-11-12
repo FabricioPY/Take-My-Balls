@@ -7,15 +7,14 @@ import java.util.List;
 
 public class GamerDAO {
 
-    private final static List<EvenOdd> gameEvenOdd = new ArrayList<>();
+    private static EvenOdd gameEvenOdd;
 
     public void save(EvenOdd evenorodd) {
-        gameEvenOdd.clear();
-        gameEvenOdd.add(evenorodd);
+        gameEvenOdd = evenorodd;
     }
 
 
     public EvenOdd choice() {
-        return gameEvenOdd.get(0);
+        return gameEvenOdd;
     }
 }
