@@ -48,16 +48,15 @@ public class Win_Activity extends AppCompatActivity {
         else
             ballsEvenOrOdd = new EvenOdd(odd);
 
-
-
-        Toast.makeText(Win_Activity.this, balls +" "+ ballsEvenOrOdd,
-                Toast.LENGTH_LONG).show();
-
         TextView evenOdd =  (TextView) findViewById(R.id.activity_even_or_odd);
+
+        TextView numbersBalls =  (TextView) findViewById(R.id.activity_nunber_balls);
 
         choice = dao.choice();
 
-        evenOdd.setText(choice.getEvenOdd());
+        numbersBalls.setText(String.valueOf(balls));
+
+        evenOdd.setText(ballsEvenOrOdd.getEvenOdd());
 
         if(choice.getEvenOdd() == ballsEvenOrOdd.getEvenOdd())
             winOrLoss = win;
@@ -67,8 +66,6 @@ public class Win_Activity extends AppCompatActivity {
         TextView winLoss =  (TextView) findViewById(R.id.activity_win_or_loss);
 
         winLoss.setText(winOrLoss);
-
-
     }
 
 

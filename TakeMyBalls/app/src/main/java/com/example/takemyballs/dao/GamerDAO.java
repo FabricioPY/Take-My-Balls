@@ -13,7 +13,6 @@ public class GamerDAO {
         gameEvenOdd = evenorodd;
     }
 
-
     public EvenOdd choice() {
         return gameEvenOdd;
     }

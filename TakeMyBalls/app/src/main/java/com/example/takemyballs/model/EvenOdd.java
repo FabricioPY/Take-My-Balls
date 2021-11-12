@@ -6,7 +6,6 @@ public class EvenOdd {
     public EvenOdd(String evenOdd){
         this.evenOdd = evenOdd;
     }
-
     public String getEvenOdd() {
         return evenOdd;
     }

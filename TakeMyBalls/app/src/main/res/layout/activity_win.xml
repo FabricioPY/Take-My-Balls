@@ -7,14 +7,27 @@
 
     <TextView
         android:id="@+id/activity_even_or_odd"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="133dp"
         android:fontFamily="@font/fredoka_one_regular"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="72sp" />
+        android:textSize="80sp" />
+
+    <TextView
+        android:id="@+id/activity_nunber_balls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="249dp"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="84sp" />
 
     <TextView
         android:id="@+id/activity_win_or_loss"
@@ -24,17 +37,7 @@
         android:fontFamily="@font/fredoka_one_regular"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="72sp" />
-    <TextView
-        android:id="@+id/activity_balls"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginVertical="70dp"
-        android:fontFamily="@font/fredoka_one_regular"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="72sp" />
+        android:textSize="96sp" />
 
 
 </RelativeLayout>
