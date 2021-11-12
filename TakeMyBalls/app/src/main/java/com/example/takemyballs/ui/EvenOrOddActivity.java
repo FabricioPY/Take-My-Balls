@@ -8,12 +8,11 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.takemyballs.R;
+import com.example.takemyballs.dao.GamerDAO;
 import com.example.takemyballs.model.EvenOdd;
 
-import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -23,7 +22,9 @@ public class EvenOrOddActivity extends AppCompatActivity {
 
     public static final String even = "EVEN";
     public static final String odd = "ODD";
-    public static final String evenOdd = "NO_CHOICE";
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,9 @@ public class EvenOrOddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_even_or_odd);
 
         ImageView pointer = findViewById(R.id.activity_poniter);
+
+        GamerDAO dao = new GamerDAO();
+
         int topPointer = 0;
 
         int time = 360;
@@ -51,7 +55,8 @@ public class EvenOrOddActivity extends AppCompatActivity {
         ButtonEven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent.putExtra(evenOdd, even);
+                EvenOdd evenOdd = new EvenOdd(even);
+                dao.save(even);
             }
         });
 
@@ -59,7 +64,7 @@ public class EvenOrOddActivity extends AppCompatActivity {
         ButtonOdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent.putExtra(evenOdd, odd);
+
             }
         });
 

@@ -1,13 +1,12 @@
 package com.example.takemyballs.model;
 
 public class EvenOdd {
-    private final String evenOrOdd;
+    private  final String evenOdd;
 
-    public EvenOdd(String evenOrOdd) {
-        this.evenOrOdd = evenOrOdd;
+    public EvenOdd(String evenOdd){
+        this.evenOdd = evenOdd;
     }
-
-    public String getEvenOrOdd() {
-        return evenOrOdd;
+    public String getEvenOdd(){
+        return evenOdd;
     }
 }
