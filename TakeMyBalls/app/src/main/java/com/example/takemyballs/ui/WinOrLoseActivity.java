@@ -2,6 +2,7 @@ package com.example.takemyballs.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -11,12 +12,16 @@ import com.example.takemyballs.model.EvenOdd;
 import com.example.takemyballs.R;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class WinOrLoseActivity extends AppCompatActivity {
 
     public static final String even = "EVEN";
     public static final String odd = "ODD";
+
+    public static String pusless;
 
     public static final String win = "WIN";
     public static final String lose = "LOSE";
@@ -27,6 +32,8 @@ public class WinOrLoseActivity extends AppCompatActivity {
     private Random random = new Random();
 
     public static EvenOdd choice;
+
+    Timer timer;
 
 
 
@@ -39,7 +46,7 @@ public class WinOrLoseActivity extends AppCompatActivity {
 
         EvenOdd ballsEvenOrOdd;
 
-        int balls = random.nextInt(max + min);
+        int balls = random.nextInt(max - min) + 1;
 
         if ( balls % 2 == 0 )
             ballsEvenOrOdd = new EvenOdd(even);
@@ -52,19 +59,35 @@ public class WinOrLoseActivity extends AppCompatActivity {
 
         choice = dao.choice();
 
-        numbersBalls.setText(String.valueOf(balls));
+
 
         evenOdd.setText(ballsEvenOrOdd.getEvenOdd());
 
-        if(choice.getEvenOdd() == ballsEvenOrOdd.getEvenOdd())
+        if(choice.getEvenOdd() == ballsEvenOrOdd.getEvenOdd()){
             winOrLose = win;
-        else
+            pusless = "+";
+            dao.add(balls);}
+        else{
             winOrLose = lose;
+            pusless = "-";
+            dao.subtract(balls);}
+
+        numbersBalls.setText(pusless + String.valueOf(balls));
 
         TextView winLoss =  (TextView) findViewById(R.id.activity_win_or_loss);
 
         winLoss.setText(winOrLose);
-    }
 
+        Intent intent = new Intent(WinOrLoseActivity.this, EvenOrOddActivity.class);
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                startActivity(intent);
+                finish();
+            }
+        }, 6000);
+    }
 
 }

@@ -22,15 +22,14 @@
         android:src="@drawable/poeiro" />
 
     <TextView
-        android:id="@+id/balls"
-        android:layout_width="26dp"
+        android:id="@+id/activiti_balls"
+        android:layout_width="52dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/fredoka_one_regular"
-        android:text="8"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp" />

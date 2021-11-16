@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.takemyballs.R;
 import com.example.takemyballs.dao.GamerDAO;
@@ -35,6 +36,12 @@ public class EvenOrOddActivity extends AppCompatActivity {
 
         GamerDAO dao = new GamerDAO();
 
+        EvenOdd evenOdd = new EvenOdd("No Choice");
+        dao.save(evenOdd);
+
+
+        TextView numbersBalls =  (TextView) findViewById(R.id.activiti_balls);
+
         int topPointer = 0;
 
         int time = 360;
@@ -42,7 +49,7 @@ public class EvenOrOddActivity extends AppCompatActivity {
         float exoX = 100;
         float exoY = 100;
 
-
+        numbersBalls.setText(String.valueOf(dao.totalBalls()));
 
         Animation rotate = new RotateAnimation(topPointer, time, exoY, exoX);
         rotate.setDuration(5000);

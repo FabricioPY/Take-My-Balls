@@ -2,12 +2,10 @@ package com.example.takemyballs.dao;
 
 import com.example.takemyballs.model.EvenOdd;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GamerDAO {
 
     private static EvenOdd gameEvenOdd;
+    private static int totalBalls;
 
     public void save(EvenOdd evenorodd) {
         gameEvenOdd = evenorodd;
@@ -15,5 +13,20 @@ public class GamerDAO {
 
     public EvenOdd choice() {
         return gameEvenOdd;
+
+    }public int totalBalls() {
+        return totalBalls;
+    }
+
+    public void add(int balls) {
+        totalBalls += balls;
+    }
+
+    public void subtract(int balls) {
+        totalBalls -= balls;
+    }
+
+    public void init10() {
+        totalBalls = 10;
     }
 }
