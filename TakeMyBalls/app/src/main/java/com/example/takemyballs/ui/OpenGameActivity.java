@@ -1,18 +1,21 @@
 package com.example.takemyballs.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 
 import com.example.takemyballs.R;
 import com.example.takemyballs.dao.GamerDAO;
 
 public class OpenGameActivity extends AppCompatActivity {
 
-    private ImageView play;
+    private AppCompatButton play;
 
 
     @Override

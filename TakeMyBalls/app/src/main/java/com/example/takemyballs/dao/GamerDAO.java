@@ -14,7 +14,7 @@ public class GamerDAO {
     public EvenOdd choice() {
         return gameEvenOdd;
 
-    }public int totalBalls() {
+    }public int getBalls() {
         return totalBalls;
     }
 

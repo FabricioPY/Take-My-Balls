@@ -35,7 +35,7 @@
         android:textSize="24sp" />
 
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/activity_button_even"
         android:layout_width="135dp"
         android:layout_height="135dp"
@@ -43,9 +43,15 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="35dp"
         android:layout_marginBottom="385dp"
-        android:src="@drawable/even" />
+        android:background="@drawable/even_custom_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:foregroundTintMode="src_in"
+        android:text="even"
+        android:textSize="40sp"/>
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/activity_button_odd"
         android:layout_width="135dp"
         android:layout_height="135dp"
@@ -53,7 +59,13 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="35dp"
         android:layout_marginBottom="385dp"
-        android:src="@drawable/odd" />
+        android:background="@drawable/odd_custom_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:foregroundTintMode="src_in"
+        android:text="odd"
+        android:textSize="40sp"/>
 
     <ImageView
         android:id="@+id/close_hand"

@@ -36,7 +36,6 @@ public class WinOrLoseActivity extends AppCompatActivity {
     Timer timer;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +45,7 @@ public class WinOrLoseActivity extends AppCompatActivity {
 
         EvenOdd ballsEvenOrOdd;
 
-        int balls = random.nextInt(max - min) + 1;
+        int balls = random.nextInt(max - min + 1) + min;
 
         if ( balls % 2 == 0 )
             ballsEvenOrOdd = new EvenOdd(even);

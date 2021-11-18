@@ -1,6 +1,7 @@
 package com.example.takemyballs.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -49,7 +50,7 @@ public class EvenOrOddActivity extends AppCompatActivity {
         float exoX = 100;
         float exoY = 100;
 
-        numbersBalls.setText(String.valueOf(dao.totalBalls()));
+        numbersBalls.setText(String.valueOf(dao.getBalls()));
 
         Animation rotate = new RotateAnimation(topPointer, time, exoY, exoX);
         rotate.setDuration(5000);
@@ -58,7 +59,7 @@ public class EvenOrOddActivity extends AppCompatActivity {
 
         Intent intent = new Intent(EvenOrOddActivity.this, WinOrLoseActivity.class);
 
-        ImageView ButtonEven = findViewById(R.id.activity_button_even);
+        AppCompatButton ButtonEven = findViewById(R.id.activity_button_even);
         ButtonEven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,7 +68,7 @@ public class EvenOrOddActivity extends AppCompatActivity {
             }
         });
 
-        ImageView ButtonOdd = findViewById(R.id.activity_button_odd);
+        AppCompatButton ButtonOdd = findViewById(R.id.activity_button_odd);
         ButtonOdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
