@@ -26,67 +26,77 @@ public class EvenOrOddActivity extends AppCompatActivity {
     public static final String odd = "ODD";
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_even_or_odd);
 
-        ImageView pointer = findViewById(R.id.activity_poniter);
-
         GamerDAO dao = new GamerDAO();
 
-        EvenOdd evenOdd = new EvenOdd("No Choice");
-        dao.save(evenOdd);
+        if ((dao.getBalls() < 1) || (dao.getBalls() > 20)){
+            Intent intent = new Intent(EvenOrOddActivity.this, FinishGameActivity.class);
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    startActivity(intent);
+                    finish();
+                }
+            }, 0);
+        }
+        else {
+            ImageView pointer = findViewById(R.id.activity_poniter);
+
+            EvenOdd evenOdd = new EvenOdd("No Choice");
+            dao.save(evenOdd);
 
 
-        TextView numbersBalls =  (TextView) findViewById(R.id.activiti_balls);
+            TextView numbersBalls = (TextView) findViewById(R.id.activiti_balls);
 
-        int topPointer = 0;
+            int topPointer = 0;
 
-        int time = 360;
+            int time = 360;
 
-        float exoX = 100;
-        float exoY = 100;
+            float exoX = 100;
+            float exoY = 100;
 
-        numbersBalls.setText(String.valueOf(dao.getBalls()));
+            numbersBalls.setText(String.valueOf(dao.getBalls()));
 
-        Animation rotate = new RotateAnimation(topPointer, time, exoY, exoX);
-        rotate.setDuration(5000);
-        rotate.setFillAfter(true);
-        pointer.startAnimation(rotate);
+            Intent intent = new Intent(EvenOrOddActivity.this, WinOrLoseActivity.class);
 
-        Intent intent = new Intent(EvenOrOddActivity.this, WinOrLoseActivity.class);
-
-        AppCompatButton ButtonEven = findViewById(R.id.activity_button_even);
-        ButtonEven.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EvenOdd evenOdd = new EvenOdd(even);
-                dao.save(evenOdd);
-            }
-        });
-
-        AppCompatButton ButtonOdd = findViewById(R.id.activity_button_odd);
-        ButtonOdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EvenOdd evenOdd = new EvenOdd(odd);
-                dao.save(evenOdd);
-            }
-        });
+            Animation rotate = new RotateAnimation(topPointer, time, exoY, exoX);
+            rotate.setDuration(5000);
+            rotate.setFillAfter(true);
+            pointer.startAnimation(rotate);
 
 
+            AppCompatButton ButtonEven = findViewById(R.id.activity_button_even);
+            ButtonEven.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    EvenOdd evenOdd = new EvenOdd(even);
+                    dao.save(evenOdd);
+                }
+            });
 
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                startActivity(intent);
-                finish();
-            }
-        }, 5000);
+            AppCompatButton ButtonOdd = findViewById(R.id.activity_button_odd);
+            ButtonOdd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    EvenOdd evenOdd = new EvenOdd(odd);
+                    dao.save(evenOdd);
+                }
+            });
 
+
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    startActivity(intent);
+                    finish();
+                }
+            }, 5000);
+        }
     }
 }
