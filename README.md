@@ -17,6 +17,7 @@ Creating event
 
 
 PT-BR
+
 Este repositório é para criar um jogo baseado na quarta rodada do jogo de esquadrão.
 Com o objetivo de estudar a criação de apps no Android por Java
 Este projeto foi pensado em MVP (Minimum Viable Product), sendo assim um projeto sempre funcional em qualquer etapa
