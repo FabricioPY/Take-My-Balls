@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/backgrald"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.EvenOrOddActivity">
@@ -69,12 +70,12 @@
 
     <ImageView
         android:id="@+id/close_hand"
-        android:layout_width="400dp"
-        android:layout_height="300dp"
+        android:layout_width="285dp"
+        android:layout_height="232dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="61dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginBottom="60dp"
         android:src="@drawable/close_hand" />
 
 </RelativeLayout>

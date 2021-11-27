@@ -5,8 +5,7 @@
         android:drawable="@drawable/even_pressed_rounded_button"/>
     <item
         android:state_enabled="false"
-        android:drawable="@drawable/even_defaul_rounded_button"/>
+        android:drawable="@drawable/green_ball"/>
     <item
-        android:drawable="@drawable/even_defaul_rounded_button"/>
-
+        android:drawable="@drawable/green_ball"/>
 </selector>

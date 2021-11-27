@@ -5,8 +5,8 @@
         android:drawable="@drawable/play_pressed_rounded_button"/>
     <item
         android:state_enabled="false"
-        android:drawable="@drawable/play_defaul_rounded_button"/>
+        android:drawable="@drawable/yellow_ball"/>
     <item
-        android:drawable="@drawable/play_defaul_rounded_button"/>
+        android:drawable="@drawable/yellow_ball"/>
 
 </selector>
