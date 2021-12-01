@@ -31,7 +31,7 @@ public class OpenGameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 dao.init10();
                 startActivity(new Intent(OpenGameActivity.this,
-                        EvenOrOddActivity.class));
+                        HowManyActivity.class));
             }
         });
 

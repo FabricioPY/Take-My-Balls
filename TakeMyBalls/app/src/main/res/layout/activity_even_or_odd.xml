@@ -18,12 +18,15 @@
         android:id="@+id/activity_poniter"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_margin="20dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:src="@drawable/poeiro" />
 
     <TextView
-        android:id="@+id/activiti_balls"
+        android:id="@+id/activity_balls"
         android:layout_width="52dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

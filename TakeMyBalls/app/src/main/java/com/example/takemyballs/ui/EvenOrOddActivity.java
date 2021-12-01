@@ -51,7 +51,7 @@ public class EvenOrOddActivity extends AppCompatActivity {
             dao.save(evenOdd);
 
 
-            TextView numbersBalls = (TextView) findViewById(R.id.activiti_balls);
+            TextView numbersBalls = (TextView) findViewById(R.id.activity_balls);
 
             int topPointer = 0;
 
