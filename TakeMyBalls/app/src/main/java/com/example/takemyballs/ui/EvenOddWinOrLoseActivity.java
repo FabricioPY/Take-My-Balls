@@ -16,7 +16,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class WinOrLoseActivity extends AppCompatActivity {
+public class EvenOddWinOrLoseActivity extends AppCompatActivity {
 
     public static final String even = "EVEN";
     public static final String odd = "ODD";
@@ -39,9 +39,11 @@ public class WinOrLoseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_win_or_lose);
+        setContentView(R.layout.activity_even_odd_win_or_lose);
 
         GamerDAO dao = new GamerDAO();
+
+        Intent intent;
 
         EvenOdd ballsEvenOrOdd;
 
@@ -65,11 +67,15 @@ public class WinOrLoseActivity extends AppCompatActivity {
         if(choice.getEvenOdd() == ballsEvenOrOdd.getEvenOdd()){
             winOrLose = win;
             pusless = "+";
-            dao.add(balls);}
+            dao.add(balls);
+            intent = new Intent(EvenOddWinOrLoseActivity.this,
+                    HowManyActivity.class);}
         else{
             winOrLose = lose;
             pusless = "-";
-            dao.subtract(balls);}
+            dao.subtract(balls);
+            intent = new Intent(EvenOddWinOrLoseActivity.this,
+                    EvenOrOddActivity.class);}
 
         numbersBalls.setText(pusless + String.valueOf(balls));
 
@@ -77,7 +83,6 @@ public class WinOrLoseActivity extends AppCompatActivity {
 
         winLoss.setText(winOrLose);
 
-        Intent intent = new Intent(WinOrLoseActivity.this, EvenOrOddActivity.class);
 
         timer = new Timer();
         timer.schedule(new TimerTask() {

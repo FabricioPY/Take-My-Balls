@@ -62,7 +62,7 @@ public class EvenOrOddActivity extends AppCompatActivity {
 
             numbersBalls.setText(String.valueOf(dao.getBalls()));
 
-            Intent intent = new Intent(EvenOrOddActivity.this, WinOrLoseActivity.class);
+            Intent intent = new Intent(EvenOrOddActivity.this, EvenOddWinOrLoseActivity.class);
 
             Animation rotate = new RotateAnimation(topPointer, time, exoY, exoX);
             rotate.setDuration(5000);

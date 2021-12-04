@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TakeMyBalls">
         <activity
+            android:name=".ui.HowManyWinOrLosActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.HowManyActivity"
             android:exported="false" />
         <activity
             android:name=".ui.FinishGameActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.WinOrLoseActivity"
+            android:name=".ui.EvenOddWinOrLoseActivity"
             android:exported="true" />
         <activity
             android:name=".ui.EvenOrOddActivity"

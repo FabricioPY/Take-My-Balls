@@ -3,6 +3,7 @@ package com.example.takemyballs.ui;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.SeekBar;
@@ -11,6 +12,9 @@ import android.widget.TextView;
 import com.example.takemyballs.R;
 import com.example.takemyballs.dao.GamerDAO;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class HowManyActivity extends AppCompatActivity {
 
     SeekBar seekBar;
@@ -18,6 +22,7 @@ public class HowManyActivity extends AppCompatActivity {
     TextView numbersBalls;
     int min = 1;
     int ballsBat;
+    Timer timer;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -27,34 +32,63 @@ public class HowManyActivity extends AppCompatActivity {
 
         GamerDAO dao = new GamerDAO();
 
-        numbersBalls = (TextView) findViewById(R.id.activity_balls);
-        seekBar = (SeekBar)findViewById(R.id.activity_seek_bar_balls);
-        textView =(TextView)findViewById(R.id.activity_bat_balls_nuber);
 
-        numbersBalls.setText(String.valueOf(dao.getBalls()));
+        if ((dao.getBalls() < 1) || (dao.getBalls() > 20)) {
+            Intent intent = new Intent(HowManyActivity.this, FinishGameActivity.class);
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    startActivity(intent);
+                    finish();
+                }
+            }, 0);
+        }
 
-        ballsBat = dao.getBalls();
+        else {
+            numbersBalls = (TextView) findViewById(R.id.activity_balls);
+            seekBar = (SeekBar) findViewById(R.id.activity_seek_bar_balls);
+            textView = (TextView) findViewById(R.id.activity_bat_balls_nuber);
 
-        seekBar.setMin(min);
-        seekBar.setMax(ballsBat);
+            numbersBalls.setText(String.valueOf(dao.getBalls()));
 
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int ballsBat, boolean fromUser)
-            {
-                textView.setText("Balls" + String.valueOf(ballsBat));
-            }
+            ballsBat = dao.getBalls();
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
+            seekBar.setMin(min);
+            seekBar.setMax(ballsBat);
 
-            }
+            Intent intent = new Intent(HowManyActivity.this,
+                    HowManyWinOrLosActivity.class);
 
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
 
-            }
-        });
+            seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                int progressChangedValue = 0;
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int ballsBat, boolean fromUser) {
+                    progressChangedValue = ballsBat;
+                    textView.setText("Balls" + String.valueOf(ballsBat));
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                dao.batBalls(progressChangedValue);
+                }
+            });
+
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    startActivity(intent);
+                    finish();
+                }
+            }, 5000);
+        }
 
     }
 }

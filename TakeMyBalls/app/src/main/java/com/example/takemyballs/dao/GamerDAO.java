@@ -6,6 +6,7 @@ public class GamerDAO {
 
     private static EvenOdd gameEvenOdd;
     private static int totalBalls;
+    private static int howManyBalls;
 
     public void save(EvenOdd evenorodd) {
         gameEvenOdd = evenorodd;
@@ -13,8 +14,17 @@ public class GamerDAO {
 
     public EvenOdd choice() {
         return gameEvenOdd;
+    }
 
-    }public int getBalls() {
+    public void batBalls(int balls) {
+        howManyBalls = balls;
+    }
+
+    public int getHowManyBalls(){
+        return  howManyBalls;
+    }
+
+    public int getBalls() {
         return totalBalls;
     }
 

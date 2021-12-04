@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgrald"
-    tools:context=".ui.WinOrLoseActivity">
+    tools:context=".ui.EvenOddWinOrLoseActivity">
 
     <TextView
         android:id="@+id/activity_even_or_odd"
