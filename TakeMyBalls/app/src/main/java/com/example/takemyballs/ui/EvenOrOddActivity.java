@@ -33,7 +33,7 @@ public class EvenOrOddActivity extends AppCompatActivity {
 
         GamerDAO dao = new GamerDAO();
 
-        if ((dao.getBalls() < 1) || (dao.getBalls() > 20)){
+        if ((dao.getBalls() < 1) || (dao.getBalls() > 19)){
             Intent intent = new Intent(EvenOrOddActivity.this, FinishGameActivity.class);
             timer = new Timer();
             timer.schedule(new TimerTask() {

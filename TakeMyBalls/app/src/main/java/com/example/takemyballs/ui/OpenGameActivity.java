@@ -13,6 +13,8 @@ import android.widget.RadioButton;
 import com.example.takemyballs.R;
 import com.example.takemyballs.dao.GamerDAO;
 
+import java.util.Random;
+
 public class OpenGameActivity extends AppCompatActivity {
 
     private AppCompatButton play;
@@ -30,8 +32,16 @@ public class OpenGameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dao.init10();
-                startActivity(new Intent(OpenGameActivity.this,
+
+                Random random = new Random();
+
+                if ( random.nextBoolean() )
+                    startActivity(new Intent(OpenGameActivity.this,
                         HowManyActivity.class));
+
+                else
+                    startActivity(new Intent(OpenGameActivity.this,
+                            EvenOrOddActivity.class));
             }
         });
 
